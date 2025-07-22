@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qdurat - قدرات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="contact-info">
+                    <span> 737354001 <i class="fa-solid fa-phone"></i></span>
+                    <span> info@qdurat.org <i class="fa-solid fa-envelope"></i></span>
+                </div>
+                <div class="social">
+                    <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="container navbar-container">
+                <nav class="nav-links" id="navLinks">
+                    <ul>
+                        <li><a href="#" class="active">الرئيسية</a></li>
+                        <li><a href="#">من نخن</a></li>
+                        <li><a href="#">المشاريع</a></li>
+                        <li><a href="#">الاخبار</a></li>
+                        <li><a href="#">تواصل معنا</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+                <div class="logo"><img src="./images/q png.webp" width="50" alt="">
+                    <!-- Dark/Light Mode Toggle Button -->
+                    <button id="theme-toggle" aria-label="Toggle dark/light mode" title="تبديل الوضع الليلي/النهاري"
+                        style="font-size: 1.5rem; background:none; border:none; cursor:pointer; color: var(--text-color);">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+                </div>
+
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide ">
+                        <img src="./images/aym_qdr5.webp" alt="Slide 1" />
+                        <div class="slide-text">
+                            <h1>مرحبًا بكم في مؤسسة قدرات</h1>
+                            <p>نحن هنا لدعم وتمكين المجتمعات من خلال مشاريعنا المتنوعة.</p>
+                            <a href="#" class="btn">اكتشف المزيد</a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="./images/MK10.webp" alt="Slide 2" />
+                        <div class="slide-text">
+                            <h1>مشاريعنا المتنوعة</h1>
+                            <p>نعمل على توفير الحلول المستدامة لتنمية المجتمع.</p>
+                            <a href="#" class="btn">تعرف على مشاريعنا</a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="./images/ML3.webp" alt="Slide 3" />
+                        <div class="slide-text">
+                            <h1>انضم إلينا</h1>
+                            <p>شارك في فعالياتنا وكن جزءًا من التغيير الإيجابي.</p>
+                            <a href="#" class="btn">انضم الآن</a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="images/aym_qdr5.webp" alt="Slide 3" />
+                        <div class="slide-text">
+                            <h1>انضم إلينا</h1>
+                            <p>شارك في فعالياتنا وكن جزءًا من التغيير الإيجابي.</p>
+                            <a href="#" class="btn">انضم الآن</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dots" role="tablist" aria-label="تنقل الشرائح"></div>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- Add more sections as needed -->
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
