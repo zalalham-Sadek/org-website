@@ -132,3 +132,55 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
+  document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.animate-left, .animate-right');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    animatedElements.forEach(el => observer.observe(el));
+  });
+
+
+
+
+
+
+  function startCounters() {
+    const counters = document.querySelectorAll('.counter-item h2');
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      let count = 0;
+      const speed = target / 100; // Adjust for smoothness
+
+      const updateCount = () => {
+        count += speed;
+        if (count < target) {
+          counter.innerText = Math.ceil(count);
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.innerText = target + '+';
+        }
+      };
+
+      updateCount();
+    });
+  }
+
+  // Run counters only when section is in viewport
+  let started = false;
+  window.addEventListener('scroll', () => {
+    const counterSection = document.querySelector('.counter');
+    const rect = counterSection.getBoundingClientRect();
+    if (rect.top <= window.innerHeight && !started) {
+      startCounters();
+      started = true;
+    }
+  });
