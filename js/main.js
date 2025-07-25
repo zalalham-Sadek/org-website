@@ -341,22 +341,6 @@ if (partnersSlider) {
 
 
 
-   document.addEventListener('DOMContentLoaded', function () {
-            // Initialize the map
-            const map = L.map('map').setView([13.5832, 44.0165], 13); // Replace with your coordinates
-
-            // Add the tile layer (OpenStreetMap)
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; مؤسسة قدرات'
-            }).addTo(map);
-
-            // Add a marker
-            L.marker([13.5832, 44.0165])  // Replace with your location
-                .addTo(map)
-                .bindPopup('موقع المشروع')
-                .openPopup();
-        });
-  
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
