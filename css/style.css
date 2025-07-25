@@ -1327,3 +1327,126 @@ footer {
   border: 1px solid var(--primary-color);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
+
+
+
+.contact-section {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+  font-family: "Tajawal", sans-serif;
+}
+
+[data-theme="dark"] .contact-section{
+  background-color: var(--white-color);
+}
+
+.contact-section .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.info-part {
+display: flex
+;
+    flex-direction: column;
+    flex: 1 1 30%;
+    background-color:var(--primary-grident-color);
+    padding: 30px;
+    gap: 32px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    direction: rtl;
+}
+.info-part p{
+font-weight: bold;
+padding: 0 20px;
+}
+.info-part p i{
+  padding-left: 10px;
+  color: var(--secondary-color);
+}
+
+
+.form-part {
+  flex: 1 1 65%;
+  background-color: var(--white-color, #fff);
+  padding: 30px;
+  border-radius: 10px;
+  /* ظل بلون مختلف عن الخلفية */
+  box-shadow: 0 0 15px rgba(0, 95, 115, 0.2); /* لون مائل لـ blue (مثلاً لون primary) */
+  direction: rtl;
+}
+
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact-form button.btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  background-color: #005f73;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button.btn:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-section .container {
+    flex-direction: column;
+  }
+
+  .info-part,
+  .form-part {
+    flex: 1 1 100%;
+  }
+}
+
+
+/* Error Message */
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* Success Notification */
+.notification {
+  display: none;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+  border: 1px solid #c3e6cb;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

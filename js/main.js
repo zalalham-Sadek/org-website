@@ -337,3 +337,88 @@ if (partnersSlider) {
   // Initial render
   projectFilter.addEventListener('change', applyFilter);
   renderCards();
+
+
+
+
+   document.addEventListener('DOMContentLoaded', function () {
+            // Initialize the map
+            const map = L.map('map').setView([13.5832, 44.0165], 13); // Replace with your coordinates
+
+            // Add the tile layer (OpenStreetMap)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; مؤسسة قدرات'
+            }).addTo(map);
+
+            // Add a marker
+            L.marker([13.5832, 44.0165])  // Replace with your location
+                .addTo(map)
+                .bindPopup('موقع المشروع')
+                .openPopup();
+        });
+  
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const name = form.name;
+            const email = form.email;
+            const message = form.message;
+            let valid = true;
+
+            // Reset previous errors
+            form.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+            // Name validation
+            if (!name.value.trim()) {
+                name.nextElementSibling.textContent = 'الرجاء إدخال الاسم الكامل.';
+                valid = false;
+            }
+            else if (!isNaN(name.value)) {
+                name.nextElementSibling.textContent = 'الاسم لا يجب أن يكون رقمًا فقط.';
+                valid = false;
+            }
+
+
+            // Email validation
+            if (!email.value.trim()) {
+                email.nextElementSibling.textContent = 'الرجاء إدخال البريد الإلكتروني.';
+                valid = false;
+            } else if (!/^\S+@\S+\.\S+$/.test(email.value.trim())) {
+                email.nextElementSibling.textContent = 'صيغة البريد الإلكتروني غير صحيحة.';
+                valid = false;
+            }
+
+            // Message validation
+            if (!message.value.trim()) {
+                message.nextElementSibling.textContent = 'الرجاء كتابة الرسالة.';
+                valid = false;
+            }
+
+            // Show success notification
+            if (valid) {
+                document.getElementById('successNotification').style.display = 'block';
+                showSuccessMessage('✅ تم إرسال النموذج بنجاح!');
+                // Optional: reset form
+                form.reset();
+
+                // Hide after 5 seconds
+                // setTimeout(() => {
+                //   document.getElementById('successNotification').style.display = 'none';
+                // }, 5000);
+            }
+        });
+
+        function showSuccessMessage(message) {
+            const notification = document.getElementById('success-notification');
+            notification.textContent = message;
+            notification.classList.remove('hidden');
+            notification.classList.add('show');
+
+            setTimeout(() => {
+                // notification.classList.remove('show');   // start hiding animation
+                setTimeout(() => {
+                    notification.classList.add('hidden');  // hide completely
+                }, 4000);
+            }, 5000);
+        }
