@@ -184,3 +184,29 @@ window.addEventListener('DOMContentLoaded', () => {
       started = true;
     }
   });
+
+
+  
+       
+// ===== 6) سلايدر الشركاء المتحرك تلقائياً =====
+const partnersSlider = document.getElementById('partnersSlider');
+
+if (partnersSlider) {
+  let scrollAmount = 0;
+  const speed = 0.5;
+
+
+
+  function animatePartners() {
+    scrollAmount += speed;
+    if (scrollAmount >= partnersSlider.scrollWidth / 2) {
+      scrollAmount = 0;
+    }
+    partnersSlider.style.transform = `translateX(-${scrollAmount}px)`;
+    requestAnimationFrame(animatePartners);
+  }
+
+  animatePartners();
+}
+
+
