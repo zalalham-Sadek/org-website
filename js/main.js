@@ -210,3 +210,130 @@ if (partnersSlider) {
 }
 
 
+ const projects = [
+    {
+      title: "مشروع تمكين المرأة",
+      description: "يهدف هذا المشروع إلى تعزيز دور المرأة في المجتمع من خلال توفير التدريب والموارد اللازمة.",
+      image: "images/female1.jpg",
+      category: "female"
+    },
+    {
+      title: "مشروع تمكين المرأة",
+      description: "يسعى هذا المشروع إلى تمكين المرأة من خلال توفير التدريب والموارد اللازمة لتحقيق الاستقلال المالي.",
+      image: "images/female-2.png",
+      category: "female"
+    },
+    {
+      title: "مشروع التعليم ",
+      description: "يركز هذا المشروع على تحسين جودة التعليم في المناطق الريفية من خلال توفير الموارد التعليمية والتدريب للمعلمين.",
+      image: "images/edu-1.png",
+      category: "education"
+    },
+    {
+      title: "مشروع البيئة والمناخ",
+      description: "يركز هذا المشروع على تعزيز الوعي البيئي ومكافحة التغير المناخي عبر مبادرات مستدامة.",
+      image: "images/env-1.jpg",
+      category: "environment"
+    },
+    {
+      title: "مبادرة مدارس خضراء",
+      description: "تهدف هذه المبادرة إلى تشجيع المدارس على استخدام مصادر الطاقة المتجددة والحفاظ على البيئة.",
+      image: "images/env-2.jpg",
+      category: "environment"
+    },
+    {
+      title: " مشروع تمكين المرأة",
+        description: "يهدف هذا المشروع إلى تعزيز دور المرأة في المجتمع من خلال توفير التدريب والموارد اللازمة.",
+      image: "images/female-3.jpg",
+      category: "female"
+    },
+    {
+      title: "مبادرة مدارس خضراء",
+      description: "تهدف هذه المبادرة إلى تشجيع المدارس على استخدام مصادر الطاقة المتجددة والحفاظ على البيئة.",
+      image: "images/env-3.jpg",
+      category: "environment"
+    },
+    {
+        title: "مشروع مهارات رقمية",
+        description: "تهدف هذه المبادرة إلى تشجيع المدارس على استخدام مصادر الطاقة المتجددة والحفاظ على البيئة.",
+        image: "images/edu-3.jpg",
+        category: "education"
+    },
+    {
+        title:"مشروع دعم المعلمين",
+        description: "يهدف هذا المشروع إلى توفير دورات تدريبية للمعلمين في مجالات التكنولوجيا الحديثة.",
+        image: "images/edu-4.jpg",   
+        category: "education"
+    },
+    {
+      title: "حملة توعية مناخية",
+      description: "تهدف هذه المبادرة إلى تشجيع المدارس على استخدام مصادر الطاقة المتجددة والحفاظ على البيئة.",
+      image: "images/env-4.jpg",
+      category: "environment"
+    },
+    {
+        title: "مشروع رائدات الأعمال",
+        description: "يهدف هذا المشروع إلى دعم النساء في تأسيس وإدارة مشاريعهن الصغيرة.",
+        image: "images/female-3.jpg",
+        category: "female"
+    },
+    {
+        title: "مشروع تعليم البرمجة للأطفال",
+        description: "يهدف هذا المشروع إلى تعليم الأطفال أساسيات البرمجة وتطوير مهاراتهم الرقمية.",
+        image: "images/edu-6.jpg",
+    }
+  ];
+
+  const cardsContainer = document.getElementById('cardsContainer');
+  const paginationContainer = document.getElementById('paginationContainer');
+  const projectFilter = document.getElementById('project-type');
+
+  const perPage = 8;
+  let currentPage = 1;
+  let filteredProjects = [...projects];
+
+  function renderCards() {
+    cardsContainer.innerHTML = '';
+    const start = (currentPage - 1) * perPage;
+    const paginatedItems = filteredProjects.slice(start, start + perPage);
+
+    paginatedItems.forEach(project => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${project.image}" alt="${project.title}" width="300">
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+      `;
+      cardsContainer.appendChild(card);
+    });
+
+    renderPagination();
+  }
+
+  function renderPagination() {
+    paginationContainer.innerHTML = '';
+    const totalPages = Math.ceil(filteredProjects.length / perPage);
+
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      if (i === currentPage) btn.classList.add('active');
+      btn.addEventListener('click', () => {
+        currentPage = i;
+        renderCards();
+      });
+      paginationContainer.appendChild(btn);
+    }
+  }
+
+  function applyFilter() {
+    const selected = projectFilter.value;
+    currentPage = 1;
+    filteredProjects = selected === 'all' ? [...projects] : projects.filter(p => p.category === selected);
+    renderCards();
+  }
+
+  // Initial render
+  projectFilter.addEventListener('change', applyFilter);
+  renderCards();
