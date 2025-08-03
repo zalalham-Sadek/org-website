@@ -8,7 +8,8 @@
   --white-color: #ffffff;
   --gray-border: #ddd;
 
-  --font-family: 'Arial', sans-serif;
+  --font-family: "Cairo", sans-serif;
+
   --font-sm: 0.9em;
   --font-md: 1em;
   --font-lg: 1.5em;
@@ -78,6 +79,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+    font-weight:500;
+  font-style: normal;
 }
 
 body {
@@ -1261,7 +1264,6 @@ footer {
 
 .form-group label {
   padding: 10px;
-  font-size: 1.3rem;
   font-weight: bold;
 }
 
@@ -1333,7 +1335,7 @@ footer {
 .contact-section {
   padding: 60px 0;
   background-color: #f9f9f9;
-  font-family: "Tajawal", sans-serif;
+  font-family: var(--font-family);
 }
 
 [data-theme="dark"] .contact-section{
@@ -1387,7 +1389,6 @@ padding: 0 20px;
 .contact-form label {
   display: block;
   margin-bottom: 5px;
-  font-weight: bold;
 }
 
 .contact-form input,
@@ -1396,12 +1397,13 @@ padding: 0 20px;
   padding: 12px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  font-size: 1rem;
+  font-size: .8rem;
 }
 
 .contact-form button.btn {
   padding: 12px 25px;
-  font-size: 1rem;
+  font-family: var(--font-family);
+  font-size: .8rem;
   background-color: #005f73;
   color: white;
   border: none;
